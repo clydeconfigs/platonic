@@ -1,0 +1,42 @@
+@import "furtive-code";
+@import "furtive-print";
+@import "furtive-links";
+@import "furtive-typescale";
+@import "furtive-responsive-utils";
+
+html,
+body {
+  min-height: 100%;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  font-family: "Courier New";
+  font-size: 110%;
+  line-height: 1.45;
+  margin: 6rem auto 1rem;
+  max-width: 48rem;
+  padding: .25rem;
+}
+
+blockquote {
+  border-left: 3px solid var(--link-color);
+  padding-left: 1rem;
+}
+
+h1, h2, h3, h4, h5 {
+    position: relative; /* Ensure positioning of the border */
+}
+
+h1::after, h2::after, h3::after, h4::after, h5::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Adjust distance of border below the headings */
+    left: 0;
+    width: 100%;
+    height: 2px; /* Adjust thickness of the border as needed */
+    background-color: #555; /* Change color of the border as needed */
+}

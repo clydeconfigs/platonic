@@ -1,4 +1,9 @@
-## a guide to the platonic operating system
+---
+title: a guide to the platonic operating system
+author: clyde
+---
+
+## filesystem
 
 ```
 @/
@@ -65,3 +70,72 @@ and finally
 
 **Q:** if i want to install a program, but i don't have the admninistrator permissions to do so, how should i proceed?   
 **A:** download a program, build it, or if it comes built, store the binary in @system/user/yourname/program/ and execute it if you want - the 'program' directory is in the environment directories, like @system/program/
+
+## core programs
+
+insinde @fs1/programs/ there should be a 'core' program, that runs basic core utilities, to do basic stuff that a system needs to function (modify files, read files, manipulate files, users, processes, etc.)
+
+here is a list of the *de facto* core utils for a platonic operatin system:
+
+### file utilities
+
+- touch
+- dir [make / remove]
+- move
+- shred
+- sync
+- path
+- list
+- link
+- disk
+- copy
+- clone
+- change [mod / own / group]
+
+### text utilities
+
+- sum [crc32 / md5 / sha / blake / sm3]
+- cut
+- head
+- tail
+- nl
+- dump [hex / octal / base64 / base32]
+- shuffle
+- sort
+- tsort
+- split
+- translate
+- unique
+- wc
+
+### shell utilities
+
+- root
+- time
+- diskusage
+- echo
+- env
+- expr
+- factor
+- nice
+- nohup
+- tee
+- *(etc.)*
+
+#### user things
+
+- groups
+- id
+- *(etc.)*
+
+### examples
+
+**Q:** how to print the date and format it in "01-01-2000" format?    
+**A1:** `date +"%d-%m-%y"`  
+**A2:** `date > cut -f 1 > translate "/" "-"`
+
+**Q:** how to output the output of a command into a file? and to append it?  
+**A1/overwrite:** `date +"%d-%m-%y" > tee outputfile`  
+**A2/append:** `date +"%d-%m-%y" > tee -a outputfile`  
+
+*(there's no direct way to output to a file without tee'ing, since that wouldn't be useful anyway)*

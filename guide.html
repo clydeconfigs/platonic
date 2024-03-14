@@ -1,4 +1,61 @@
-<h2>a guide to the platonic operating system</h2>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="clyde" />
+  <title>a guide to the platonic operating system</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">a guide to the platonic operating system</h1>
+<p class="author">clyde</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#filesystem" id="toc-filesystem">filesystem</a>
+<ul>
+<li><a href="#system" id="toc-system"><span class="citation"
+data-cites="system">@system</span></a></li>
+<li><a href="#user" id="toc-user"><span class="citation"
+data-cites="user">@user</span></a></li>
+<li><a href="#examples" id="toc-examples">examples</a></li>
+</ul></li>
+<li><a href="#core-programs" id="toc-core-programs">core programs</a>
+<ul>
+<li><a href="#file-utilities" id="toc-file-utilities">file
+utilities</a></li>
+<li><a href="#text-utilities" id="toc-text-utilities">text
+utilities</a></li>
+<li><a href="#shell-utilities" id="toc-shell-utilities">shell
+utilities</a></li>
+<li><a href="#examples-1" id="toc-examples-1">examples</a></li>
+</ul></li>
+</ul>
+</nav>
+<h2 id="filesystem">filesystem</h2>
 <pre><code>@/
 └── @fs1/
     ├── system/
@@ -19,37 +76,144 @@
                 ├── docs/
                 ├── downloads/
                 ├── pics/
-                └── vids/
-</code></pre>
-<p>every device plugged into the computer is listed inside '@', and ordered numerically, like '@fs1', '@fs2' and so on</p>
-<p>we can interpret '@fs1' as just @, relative to our local filesystem, so the system directory can be called as @system</p>
-<h3>@system</h3>
-<p>the files used by the system are in @system, containing</p>
+                └── vids/</code></pre>
+<p>every device plugged into the computer is listed inside ‘@’, and
+ordered numerically, like ‘<span class="citation"
+data-cites="fs1">@fs1</span>’, ‘<span class="citation"
+data-cites="fs2">@fs2</span>’ and so on</p>
+<p>we can interpret ‘<span class="citation"
+data-cites="fs1">@fs1</span>’ as just @, relative to our local
+filesystem, so the system directory can be called as <span
+class="citation" data-cites="system">@system</span></p>
+<h3 id="system"><span class="citation"
+data-cites="system">@system</span></h3>
+<p>the files used by the system are in <span class="citation"
+data-cites="system">@system</span>, containing</p>
 <ul>
 <li><strong>boot</strong>, used for the boot process</li>
 <li><strong>config</strong>, used to configure programs</li>
 <li><strong>kernel</strong>, used to communicate with the kernel</li>
 <li><strong>process</strong>, used for processes</li>
 <li><strong>program</strong>, used for programs</li>
-<li><strong>variable</strong>, used for various files used by programs that can change over time - this is the most flexible directory in the entire @system directory</li>
+<li><strong>variable</strong>, used for various files used by programs
+that can change over time - this is the most flexible directory in the
+entire <span class="citation" data-cites="system">@system</span>
+directory</li>
 </ul>
-<p>then, we have the subdirectories like <em>library</em> and <em>share</em> inside <strong>program</strong>, this are for what the name says: libraries and shared resources - the other directories shall not be overloaded with other subdirectories, except <strong>variable</strong></p>
-<h3>@user</h3>
-<p>the user directory lists all the directories created for the users - it shall have a directory with the name of the user, and inside it, this structure:</p>
+<p>then, we have the subdirectories like <em>library</em> and
+<em>share</em> inside <strong>program</strong>, this are for what the
+name says: libraries and shared resources - the other directories shall
+not be overloaded with other subdirectories, except
+<strong>variable</strong></p>
+<h3 id="user"><span class="citation" data-cites="user">@user</span></h3>
+<p>the user directory lists all the directories created for the users -
+it shall have a directory with the name of the user, and inside it, this
+structure:</p>
 <ul>
-<li><strong>configs</strong>, for his personal configuration for his programs that are not shared across the system</li>
-<li><strong>program</strong>, for his local programs that, again, are not shared across the system</li>
+<li><strong>configs</strong>, for his personal configuration for his
+programs that are not shared across the system</li>
+<li><strong>program</strong>, for his local programs that, again, are
+not shared across the system</li>
 </ul>
 <p>and finally</p>
 <ul>
-<li><strong>desktop</strong>, which hosts all files that the user wants to store whatsoever - this may be separated into another partition for security reasons, as well as the others or the main user directory <strong>william</strong></li>
+<li><strong>desktop</strong>, which hosts all files that the user wants
+to store whatsoever - this may be separated into another partition for
+security reasons, as well as the others or the main user directory
+<strong>william</strong></li>
 </ul>
-<h3>examples</h3>
-<p><strong>Q:</strong> where are the icons for a program stored?<br>
-<strong>A:</strong> in @system/program/share/</p>
-<p><strong>Q:</strong> where are the build files for the package manager   stored?<br>
-<strong>A:</strong> in @system/variable/</p>
-<p><strong>Q:</strong> where are logs from the display server stored?<br>
-<strong>A:</strong> in @system/variable/</p>
-<p><strong>Q:</strong> if i want to install a program, but i don't have the admninistrator permissions to do so, how should i proceed?<br>
-<strong>A:</strong> download a program, build it, or if it comes built, store the binary in @system/user/yourname/program/ and execute it if you want - the 'program' directory is in the environment directories, like @system/program/</p>
+<h3 id="examples">examples</h3>
+<p><strong>Q:</strong> where are the icons for a program stored?<br />
+<strong>A:</strong> in <span class="citation"
+data-cites="system/program/share">@system/program/share</span>/</p>
+<p><strong>Q:</strong> where are the build files for the package manager
+stored?<br />
+<strong>A:</strong> in <span class="citation"
+data-cites="system/variable">@system/variable</span>/</p>
+<p><strong>Q:</strong> where are logs from the display server
+stored?<br />
+<strong>A:</strong> in <span class="citation"
+data-cites="system/variable">@system/variable</span>/</p>
+<p><strong>Q:</strong> if i want to install a program, but i don’t have
+the admninistrator permissions to do so, how should i proceed?<br />
+<strong>A:</strong> download a program, build it, or if it comes built,
+store the binary in <span class="citation"
+data-cites="system/user/yourname/program">@system/user/yourname/program</span>/
+and execute it if you want - the ‘program’ directory is in the
+environment directories, like <span class="citation"
+data-cites="system/program">@system/program</span>/</p>
+<h2 id="core-programs">core programs</h2>
+<p>insinde <span class="citation"
+data-cites="fs1/programs">@fs1/programs</span>/ there should be a ‘core’
+program, that runs basic core utilities, to do basic stuff that a system
+needs to function (modify files, read files, manipulate files, users,
+processes, etc.)</p>
+<p>here is a list of the <em>de facto</em> core utils for a platonic
+operatin system:</p>
+<h3 id="file-utilities">file utilities</h3>
+<ul>
+<li>touch</li>
+<li>dir [make / remove]</li>
+<li>move</li>
+<li>shred</li>
+<li>sync</li>
+<li>path</li>
+<li>list</li>
+<li>link</li>
+<li>disk</li>
+<li>copy</li>
+<li>clone</li>
+<li>change [mod / own / group]</li>
+</ul>
+<h3 id="text-utilities">text utilities</h3>
+<ul>
+<li>sum [crc32 / md5 / sha / blake / sm3]</li>
+<li>cut</li>
+<li>head</li>
+<li>tail</li>
+<li>nl</li>
+<li>dump [hex / octal / base64 / base32]</li>
+<li>shuffle</li>
+<li>sort</li>
+<li>tsort</li>
+<li>split</li>
+<li>translate</li>
+<li>unique</li>
+<li>wc</li>
+</ul>
+<h3 id="shell-utilities">shell utilities</h3>
+<ul>
+<li>root</li>
+<li>time</li>
+<li>diskusage</li>
+<li>echo</li>
+<li>env</li>
+<li>expr</li>
+<li>factor</li>
+<li>nice</li>
+<li>nohup</li>
+<li>tee</li>
+<li><em>(etc.)</em></li>
+</ul>
+<h4 id="user-things">user things</h4>
+<ul>
+<li>groups</li>
+<li>id</li>
+<li><em>(etc.)</em></li>
+</ul>
+<h3 id="examples-1">examples</h3>
+<p><strong>Q:</strong> how to print the date and format it in
+“01-01-2000” format?<br />
+<strong>A1:</strong> <code>date +"%d-%m-%y"</code><br />
+<strong>A2:</strong>
+<code>date &gt; cut -f 1 &gt; translate "/" "-"</code></p>
+<p><strong>Q:</strong> how to output the output of a command into a
+file? and to append it?<br />
+<strong>A1/overwrite:</strong>
+<code>date +"%d-%m-%y" &gt; tee outputfile</code><br />
+<strong>A2/append:</strong>
+<code>date +"%d-%m-%y" &gt; tee -a outputfile</code></p>
+<p><em>(there’s no direct way to output to a file without tee’ing, since
+that wouldn’t be useful anyway)</em></p>
+</body>
+</html>
