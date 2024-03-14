@@ -1,0 +1,55 @@
+<h2>a guide to the platonic operating system</h2>
+<pre><code>@/
+└── @fs1/
+    ├── system/
+    │   ├── boot/
+    │   ├── config/
+    │   ├── kernel/
+    │   ├── process/
+    │   ├── program/
+    │   │   ├── core*
+    │   │   ├── library/
+    │   │   └── share/
+    │   └── variable/
+    └── user/
+        └── william/
+            ├── configs/
+            ├── program/
+            └── desktop/
+                ├── docs/
+                ├── downloads/
+                ├── pics/
+                └── vids/
+</code></pre>
+<p>every device plugged into the computer is listed inside '@', and ordered numerically, like '@fs1', '@fs2' and so on</p>
+<p>we can interpret '@fs1' as just @, relative to our local filesystem, so the system directory can be called as @system</p>
+<h3>@system</h3>
+<p>the files used by the system are in @system, containing</p>
+<ul>
+<li><strong>boot</strong>, used for the boot process</li>
+<li><strong>config</strong>, used to configure programs</li>
+<li><strong>kernel</strong>, used to communicate with the kernel</li>
+<li><strong>process</strong>, used for processes</li>
+<li><strong>program</strong>, used for programs</li>
+<li><strong>variable</strong>, used for various files used by programs that can change over time - this is the most flexible directory in the entire @system directory</li>
+</ul>
+<p>then, we have the subdirectories like <em>library</em> and <em>share</em> inside <strong>program</strong>, this are for what the name says: libraries and shared resources - the other directories shall not be overloaded with other subdirectories, except <strong>variable</strong></p>
+<h3>@user</h3>
+<p>the user directory lists all the directories created for the users - it shall have a directory with the name of the user, and inside it, this structure:</p>
+<ul>
+<li><strong>configs</strong>, for his personal configuration for his programs that are not shared across the system</li>
+<li><strong>program</strong>, for his local programs that, again, are not shared across the system</li>
+</ul>
+<p>and finally</p>
+<ul>
+<li><strong>desktop</strong>, which hosts all files that the user wants to store whatsoever - this may be separated into another partition for security reasons, as well as the others or the main user directory <strong>william</strong></li>
+</ul>
+<h3>examples</h3>
+<p><strong>Q:</strong> where are the icons for a program stored?<br>
+<strong>A:</strong> in @system/program/share/</p>
+<p><strong>Q:</strong> where are the build files for the package manager   stored?<br>
+<strong>A:</strong> in @system/variable/</p>
+<p><strong>Q:</strong> where are logs from the display server stored?<br>
+<strong>A:</strong> in @system/variable/</p>
+<p><strong>Q:</strong> if i want to install a program, but i don't have the admninistrator permissions to do so, how should i proceed?<br>
+<strong>A:</strong> download a program, build it, or if it comes built, store the binary in @system/user/yourname/program/ and execute it if you want - the 'program' directory is in the environment directories, like @system/program/</p>
